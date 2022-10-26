@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global Location Online Clock</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
+    />
+    <style>
+      .header-image {
+        background-image: url("https://raw.githubusercontent.com/roldanmoncada/Group-Project-1/Ethan/assets/london.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: #999;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <section class="hero is-white is-fullheight header-image">
+        <!-- Hero header: will stick at the top -->
+        <div class="hero-head">
+          <header class="navbar">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="">
+                <img
+                  src="https://raw.githubusercontent.com/roldanmoncada/Group-Project-1/Ethan/assets/9logo.png"
+                  alt="Group 09 Logo"
+                  width="36"
+                  height="38"
+                />
+              </a>
+
+              <div
+                class="navbar-burger"
+                v-on:click="showNav = !showNav"
+                v-bind:class="{ 'is-active' : showNav }"
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="navbar-menu" v-bind:class="{ 'is-active' : showNav }">
+              <!-- navbar start, navbar end -->
+              <div class="navbar-end">
+                <a class="navbar-item" href="/about">About</a>
+              </div>
+            </div>
+          </header>
+        </div>
+
+        <!-- Hero content: will be in the middle -->
+        <div class="hero-body">
+          <div class="container is-info has-text-centered">
+            <div class="tile is-ancestor">
+              <div class="tile is-parent">
+                <article class="tile is-child notification is-info">
+                  <h1 class="title">This is where the clock will go?</h1>
+                  <input
+                    class="input is-rounded is-medium"
+                    type="text"
+                    placeholder="Search a location..."
+                  />
+                  <h2 class="subtitle">
+                    This is where the recent searches will appear?
+                  </h2>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Hero footer: will stick at the bottom -->
+        <div class="hero-foot">
+          <nav class="tabs is-boxed is-fullwidth">
+            <div class="container">
+              <ul>
+                <li><a>G.L.O.C.</a></li>
+                <li><a>Project1 Group 09</a></li>
+                <li><a>Documentation</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

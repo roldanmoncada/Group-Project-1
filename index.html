@@ -9,14 +9,18 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
     />
+    <script src="script.js"defer>
+    </script>
     <style>
       .header-image {
-        background-image: url("https://raw.githubusercontent.com/roldanmoncada/Group-Project-1/Ethan/assets/london.jpg");
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
         background-color: #999;
+      }
+      .is-transparent {
+        opacity: 0.7;
       }
     </style>
   </head>
@@ -58,13 +62,17 @@
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
           <div class="container is-info has-text-centered">
-            <div class="tile is-ancestor">
+            <div class="tile is-ancestor">`
               <div class="tile is-parent">
-                <article class="tile is-child notification is-info">
+                <article class="tile is-child notification is-transparent is-white">
                   <h1 class="title">This is where the clock will go?</h1>
+                  <button class="button is-info" id="getImageButton">Get image</button>
+                  <figure class="image is-128x128">
+                    <img id="unsplashImage">
+                    </figure>
                   <input
                     class="input is-rounded is-medium"
-                    type="text"
+                    type="search"
                     placeholder="Search a location..."
                   />
                   <h2 class="subtitle">
@@ -75,6 +83,7 @@
             </div>
           </div>
         </div>
+
         <!-- Hero footer: will stick at the bottom -->
         <div class="hero-foot">
           <nav class="tabs is-boxed is-fullwidth">

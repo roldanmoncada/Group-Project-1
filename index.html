@@ -13,7 +13,6 @@
     </script>
     <style>
       .header-image {
-        background-image:url();
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -27,7 +26,7 @@
   </head>
   <body>
     <div>
-      <section class="hero is-white is-fullheight header-image">
+      <section class="hero is-white is-fullheight header-image" id="hero-image">
         <!-- Hero header: will stick at the top -->
         <div class="hero-head">
           <header class="navbar">
@@ -68,13 +67,10 @@
                 <article class="tile is-child notification is-transparent is-white">
                   <h1 class="title">This is where the clock will go?</h1>
                   <button class="button is-info" id="getImageButton">Get image</button>
-                  <figure class="image is-128x128">
-                    <img id="unsplashImage">
-                    </figure>
                   <input
                     class="input is-rounded is-medium"
                     type="search"
-                    placeholder="Search a location..."
+                    placeholder="Search a destination..."
                   />
                   <h2 class="subtitle">
                     This is where the recent searches will appear?

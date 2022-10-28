@@ -5,35 +5,16 @@
 //     navbarMenu.classList.toggle('is-active');
 // });
 
-// // #curl "https://worldtimeapi.org/api/Europe/London";
-
-// let clientID="FqwsiGk0s2Nox9oBbr-hudpZcsi7sQXZRbg9PvZ-UFo";
-// let endpoint="https://api.unsplash.com/photos/random/?client_id=FqwsiGk0s2Nox9oBbr-hudpZcsi7sQXZRbg9PvZ-UFo";
-// //let endpoint='https://api.unsplash.com/photos/random/?client_id=${clientID}';
-
-// let imageElement = document.querySelector("#unsplashImage");
-// let imageLink = document.querySelector("#imageLink");
-// let creator = document.querySelector("#creator");
-
-// fetch(endpoint)
-//     .then(function (response) {
-//         console.log(response.json());
-//         //return response.json();
-//     })
-//     .then(function (jsonData) {
-//         console.log
-//         //imageElement.src = jsonData.urls.full;
-//     })
-
 const requestUrl =
       'https://api.unsplash.com/search/photos?query=london&client_id=FqwsiGk0s2Nox9oBbr-hudpZcsi7sQXZRbg9PvZ-UFo';
     const getImageButton = document.querySelector('#getImageButton');
-    const imageToDisplay = document.getElementsByClassName("header-image").style.backgroundImage;
+    const imageToDisplay = document.getElementsByClassName("header-image");
+    console.log(imageToDisplay[0])
 
     getImageButton.addEventListener('click', async () => {
       let randomImage = await getNewImage();
       console.log(randomImage);
-      imageToDisplay.src = randomImage;
+      imageToDisplay[0].style.backgroundImage = `url(${randomImage})`;
     });
 
     async function getNewImage() {

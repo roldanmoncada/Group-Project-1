@@ -25,25 +25,32 @@
 //         //imageElement.src = jsonData.urls.full;
 //     })
 
-const requestUrl =
-      'https://api.unsplash.com/search/photos?query=london&client_id=FqwsiGk0s2Nox9oBbr-hudpZcsi7sQXZRbg9PvZ-UFo';
-    const getImageButton = document.querySelector('#getImageButton');
-    const imageToDisplay = document.getElementsByClassName("header-image");
-    console.log(imageToDisplay[0])
-    imageToDisplay[0].style.backgroundImage = "url('https://media.wired.co.uk/photos/607d91994d40fbb952b6ad64/4:3/w_2664,h_1998,c_limit/wired-meme-nft-brian.jpg')"
+var requestUrl =
+  "https://api.unsplash.com/search/photos?query=london&client_id=FqwsiGk0s2Nox9oBbr-hudpZcsi7sQXZRbg9PvZ-UFo";
 
-    getImageButton.addEventListener('click', async () => {
-      let randomImage = await getNewImage();
-      console.log(randomImage);
-      imageToDisplay.src = randomImage;
+const getImageButton = document.querySelector("#getImageButton");
+const imageToDisplay = document.getElementsByClassName("header-image");
+console.log(imageToDisplay[0]);
+
+
+getImageButton.addEventListener("click", async () => {
+  const searchInputEl = document.getElementById("search-input");
+  const searchInputVal = searchInputEl.value;
+  
+  requestUrl = `https://api.unsplash.com/search/photos?query=${searchInputVal}&client_id=FqwsiGk0s2Nox9oBbr-hudpZcsi7sQXZRbg9PvZ-UFo` 
+
+  let randomImage = await getNewImage();
+  imageToDisplay[0].style.backgroundImage = `url(${randomImage})`;
+});
+
+async function getNewImage() {
+  let randomNumber = Math.floor(Math.random() * 10);
+  return fetch(requestUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      let allImages = data.results[randomNumber];
+      return allImages.urls.regular;
     });
+}
 
-    async function getNewImage() {
-      let randomNumber = Math.floor(Math.random() * 10);
-      return fetch(requestUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          let allImages = data.results[randomNumber];
-          return allImages.urls.regular;
-        });
-    }
+

@@ -30,7 +30,7 @@ var requestUrl =
 
 const getImageButton = document.querySelector("#getImageButton");
 const imageToDisplay = document.getElementsByClassName("header-image");
-console.log(imageToDisplay[0]);
+
 
 
 getImageButton.addEventListener("click", async () => {
@@ -68,19 +68,17 @@ fetch("http://worldtimeapi.org/api/timezone", {
       console.log(data);
     });
 
-    /*function getApi() {
-      // fetch request gets a list of all the repos for the node.js organization
-      var requestUrl = 'http://worldtimeapi.org/api/timezone';
-    
-      fetch(requestUrl)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          console.log(data)
-        }); 
-      }*/
 
-var timeRequestUrl = "http://worldtimeapi.org/api";
+
+var timeRequestUrl = response.json("http://worldtimeapi.org/timezone/Asia/Kolkata");
 console.log(timeRequestUrl)
 
+const getTimeButton = document.querySelector("#getImageButton");
+const timeToDisplay = document.getElementById(".title");
+
+getTimeButton.addEventListener('click') {
+  const timeSearchEl = document.getElementById('search-input');
+  const timeSearchVal = timeSearchEl.value;
+
+  timeRequestUrl = `http://worldtimeapi.org/timezone/${timeSearchVal}`
+}

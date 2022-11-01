@@ -74,11 +74,16 @@ var timeRequestUrl = response.json("http://worldtimeapi.org/timezone/Asia/Kolkat
 console.log(timeRequestUrl)
 
 const getTimeButton = document.querySelector("#getImageButton");
-const timeToDisplay = document.getElementById(".title");
+const timeToDisplay = document.getElementById("#title");
+console.log(timeToDisplay)
 
-getTimeButton.addEventListener('click') {
+getTimeButton.addEventListener("click", async () => {
   const timeSearchEl = document.getElementById('search-input');
   const timeSearchVal = timeSearchEl.value;
 
   timeRequestUrl = `http://worldtimeapi.org/timezone/${timeSearchVal}`
-}
+})
+
+// async function getTimeZone() {
+
+// }

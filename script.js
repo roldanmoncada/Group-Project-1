@@ -5,26 +5,6 @@
 //     navbarMenu.classList.toggle('is-active');
 // });
 
-// // #curl "https://worldtimeapi.org/api/Europe/London";
-
-// let clientID="FqwsiGk0s2Nox9oBbr-hudpZcsi7sQXZRbg9PvZ-UFo";
-// let endpoint="https://api.unsplash.com/photos/random/?client_id=FqwsiGk0s2Nox9oBbr-hudpZcsi7sQXZRbg9PvZ-UFo";
-// //let endpoint='https://api.unsplash.com/photos/random/?client_id=${clientID}';
-
-// let imageElement = document.querySelector("#unsplashImage");
-// let imageLink = document.querySelector("#imageLink");
-// let creator = document.querySelector("#creator");
-
-// fetch(endpoint)
-//     .then(function (response) {
-//         console.log(response.json());
-//         //return response.json();
-//     })
-//     .then(function (jsonData) {
-//         console.log
-//         //imageElement.src = jsonData.urls.full;
-//     })
-
 var requestUrl =
   "https://api.unsplash.com/search/photos?query=london&client_id=FqwsiGk0s2Nox9oBbr-hudpZcsi7sQXZRbg9PvZ-UFo";
 
@@ -43,12 +23,48 @@ async function getTime(searchInputVal) {
     })
 }
 
-
 getImageButton.addEventListener("click", async () => {
-  const searchInputEl = document.getElementById("search-input");
+  var searchInputEl = document.getElementById("search-input");
   const searchInputVal = searchInputEl.value;
-  
-  requestUrl = `https://api.unsplash.com/search/photos?query=${searchInputVal}&client_id=FqwsiGk0s2Nox9oBbr-hudpZcsi7sQXZRbg9PvZ-UFo` 
+
+  var pastSearches = [];
+  var searchesUL = document.getElementById("search-history");
+
+  if (localStorage["pastSearches"]) {
+    pastSearches = JSON.parse(localStorage["pastSearches"]);
+  }
+
+  if (pastSearches.indexOf(searchInputVal) == -1) {
+    pastSearches.unshift(searchInputVal);
+    if (pastSearches.length > 5) {
+      pastSearches.pop();
+    }
+
+    searchesUL.innerHTML = "";
+    console.log(pastSearches.length);
+
+    for (var i = 0; i < pastSearches.length; i++) {
+      var searchItem = document.createElement("li");
+      //searchItem.innerText = pastSearches[i];
+      searchItem.className = "search-history-item";
+      var searchLink = document.createElement("a");
+      searchLink.innerText = pastSearches[i];
+      searchItem.appendChild(searchLink);
+      searchesUL.appendChild(searchItem);
+
+      searchItem.addEventListener("click", function(event) {
+        console.log(event.target.innerText);
+        searchInputEl.value = event.target.innerText;
+      })
+    }
+
+
+
+    localStorage["pastSearches"] = JSON.stringify(pastSearches);
+    console.log(pastSearches);
+  }
+
+  requestUrl = `https://api.unsplash.com/search/photos?query=${searchInputVal}&client_id=FqwsiGk0s2Nox9oBbr-hudpZcsi7sQXZRbg9PvZ-UFo`;
 
   let randomImage = await getNewImage();
   imageToDisplay[0].style.backgroundImage = `url(${randomImage})`;
@@ -72,6 +88,7 @@ async function getNewImage() {
       return allImages.urls.regular;
     });
 }
+
 
 
 // TIME API SECTION!!!!!!

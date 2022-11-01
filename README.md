@@ -26,4 +26,4 @@ THEN I can click a location on the list below and it will appear i8n the search 
 https://roldanmoncada.github.io/Challenge-01-Redo/
 
 ### Screenshot of the the expected outcome:
-
+![](Screen%20Shot%202022-11-01%20at%202.01.03%20PM.png)

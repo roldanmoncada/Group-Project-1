@@ -1,4 +1,4 @@
-# Project 01: Global Online Clock
+# Project 01: Global Location Online Clock
 
 ## Description: 
     The Global Online Clock is a website that will display a time and image based on the the users search. while working on this project our group faced many challenges, our main issues stem from the APIs and being able to display the data on our website. 

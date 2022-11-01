@@ -13,7 +13,7 @@ const imageToDisplay = document.getElementsByClassName("header-image");
 console.log(imageToDisplay[0]);
 
 getImageButton.addEventListener("click", async () => {
-  const searchInputEl = document.getElementById("search-input");
+  var searchInputEl = document.getElementById("search-input");
   const searchInputVal = searchInputEl.value;
 
   var pastSearches = [];
@@ -34,11 +34,20 @@ getImageButton.addEventListener("click", async () => {
 
     for (var i = 0; i < pastSearches.length; i++) {
       var searchItem = document.createElement("li");
-      searchItem.innerText = pastSearches[i];
-      // searchItem.className = "file";
-      console.log(searchItem);
+      //searchItem.innerText = pastSearches[i];
+      searchItem.className = "search-history-item";
+      var searchLink = document.createElement("a");
+      searchLink.innerText = pastSearches[i];
+      searchItem.appendChild(searchLink);
       searchesUL.appendChild(searchItem);
+
+      searchItem.addEventListener("click", function(event) {
+        console.log(event.target.innerText);
+        searchInputEl.value = event.target.innerText;
+      })
     }
+
+
 
     localStorage["pastSearches"] = JSON.stringify(pastSearches);
     console.log(pastSearches);

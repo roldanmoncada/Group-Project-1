@@ -1,8 +1,4 @@
-fetch("http://worldtimeapi.org/api/timezone", {
-    method: 'GET', 
-    credentials: 'same-origin', 
-    redirect: 'follow', 
-})
+fetch("http://worldtimeapi.org/api/timezone",)
     .then(function (response) {
       return response.json();
     })
@@ -22,3 +18,4 @@ fetch("http://worldtimeapi.org/api/timezone", {
           console.log(data)
         }); 
       }*/
+     

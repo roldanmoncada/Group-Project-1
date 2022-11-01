@@ -9,12 +9,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
     />
-    <script src="/GroupProject1/assets/script.js"defer>
+    <script src="script.js"defer>
     </script>
     <style>
       .header-image {
-        background-image: url("unsplashImage");
-        /* background-image: url("assets/london.jpg"); */
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -35,7 +33,7 @@
             <div class="navbar-brand">
               <a class="navbar-item" href="">
                 <img
-                  src="/Group-Project-1/assets/9logo.png"
+                  src="https://raw.githubusercontent.com/roldanmoncada/Group-Project-1/Ethan/assets/9logo.png"
                   alt="Group 09 Logo"
                   width="36"
                   height="38"
@@ -64,14 +62,15 @@
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
           <div class="container is-info has-text-centered">
-            <div class="tile is-ancestor">
+            <div class="tile is-ancestor">`
               <div class="tile is-parent">
                 <article class="tile is-child notification is-transparent is-white">
                   <h1 class="title">This is where the clock will go?</h1>
+                  <button class="button is-info" id="getImageButton">Get image</button>
                   <input
                     class="input is-rounded is-medium"
                     type="search"
-                    placeholder="Search a location..."
+                    placeholder="Search a destination..."
                   />
                   <h2 class="subtitle">
                     This is where the recent searches will appear?
@@ -81,6 +80,7 @@
             </div>
           </div>
         </div>
+
         <!-- Hero footer: will stick at the bottom -->
         <div class="hero-foot">
           <nav class="tabs is-boxed is-fullwidth">

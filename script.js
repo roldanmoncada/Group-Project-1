@@ -30,7 +30,18 @@ var requestUrl =
 
 const getImageButton = document.querySelector("#getImageButton");
 const imageToDisplay = document.getElementsByClassName("header-image");
+const timeToDisplay = document.getElementById("time-display");
 
+
+async function getTime(searchInputVal) {
+  const requestTimeUrl = `https://api.ipgeolocation.io/timezone?apiKey=940f164720034e1daf4ec3d43b503d1d&location=${searchInputVal}`;
+
+  return fetch(requestTimeUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    })
+}
 
 
 getImageButton.addEventListener("click", async () => {
@@ -41,7 +52,16 @@ getImageButton.addEventListener("click", async () => {
 
   let randomImage = await getNewImage();
   imageToDisplay[0].style.backgroundImage = `url(${randomImage})`;
+
+  let newTime = await getTime(searchInputVal);
+  timeToDisplay.innerText = newTime.date_time_txt;
+  console.log(newTime.date)
+
+
+    
 });
+
+
 
 async function getNewImage() {
   let randomNumber = Math.floor(Math.random() * 10);
@@ -70,20 +90,3 @@ fetch("http://worldtimeapi.org/api/timezone", {
 
 
 
-var timeRequestUrl = response.json("http://worldtimeapi.org/timezone/Asia/Kolkata");
-console.log(timeRequestUrl)
-
-const getTimeButton = document.querySelector("#getImageButton");
-const timeToDisplay = document.getElementById("#title");
-console.log(timeToDisplay)
-
-getTimeButton.addEventListener("click", async () => {
-  const timeSearchEl = document.getElementById('search-input');
-  const timeSearchVal = timeSearchEl.value;
-
-  timeRequestUrl = `http://worldtimeapi.org/timezone/${timeSearchVal}`
-})
-
-// async function getTimeZone() {
-
-// }

@@ -91,7 +91,8 @@ async function getNewImage() {
 
 
 
-// TIME API SECTION!!!!!!
+
+/* OLD TIME API SECTION!!!!!!
 
 fetch("http://worldtimeapi.org/api/timezone", {
     method: 'GET', 
@@ -103,7 +104,4 @@ fetch("http://worldtimeapi.org/api/timezone", {
     })
     .then(function (data) {
       console.log(data);
-    });
-
-
-
+    }); */

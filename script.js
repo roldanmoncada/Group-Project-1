@@ -91,6 +91,7 @@ async function getNewImage() {
 
 
 
+
 /* OLD TIME API SECTION!!!!!!
 
 fetch("http://worldtimeapi.org/api/timezone", {
